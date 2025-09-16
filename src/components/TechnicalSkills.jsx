@@ -1,25 +1,31 @@
 // Technical Skills Component
-import { Code, Layers, Settings, Brain } from 'lucide-react';
+import React from 'react';
+import { 
+  Code, Layers, Settings, Brain, 
+  Zap, FileCode, Palette, Monitor,
+  Atom, Wind, Grid3X3, Smartphone,
+  GitBranch, Github, Terminal, Gauge
+} from 'lucide-react';
 
 const TechnicalSkills = () => {
   const skillsData = {
     languages: [
-      { name: 'JavaScript', level: 85, icon: '⚡', color: 'from-yellow-400 to-orange-500', description: 'Modern ES6+, DOM manipulation, Async/Await' },
-      { name: 'Python', level: 80, icon: '🐍', color: 'from-blue-400 to-green-500', description: 'Object-oriented programming, Data structures' },
-      { name: 'HTML5', level: 90, icon: '🏗️', color: 'from-orange-400 to-red-500', description: 'Semantic markup, Accessibility, SEO' },
-      { name: 'CSS3', level: 85, icon: '🎨', color: 'from-pink-400 to-purple-500', description: 'Flexbox, Grid, Animations, Responsive design' }
+      { name: 'JavaScript', level: 85, icon: Zap, color: 'from-yellow-400 to-orange-500', description: 'Modern ES6+, DOM manipulation, Async/Await' },
+      { name: 'Python', level: 80, icon: Code, color: 'from-blue-400 to-green-500', description: 'Object-oriented programming, Data structures' },
+      { name: 'HTML5', level: 90, icon: FileCode, color: 'from-orange-400 to-red-500', description: 'Semantic markup, Accessibility, SEO' },
+      { name: 'CSS3', level: 85, icon: Palette, color: 'from-pink-400 to-purple-500', description: 'Flexbox, Grid, Animations, Responsive design' }
     ],
     frameworks: [
-      { name: 'React', level: 82, icon: '⚛️', color: 'from-cyan-400 to-blue-500', description: 'Hooks, Context API, Component lifecycle' },
-      { name: 'Tailwind CSS', level: 88, icon: '🌊', color: 'from-teal-400 to-blue-500', description: 'Utility-first, Custom components, Responsive' },
-      { name: 'Bootstrap', level: 75, icon: '🅱️', color: 'from-purple-400 to-pink-500', description: 'Grid system, Components, Customization' },
-      { name: 'Material UI', level: 70, icon: '📱', color: 'from-indigo-400 to-purple-500', description: 'Component library, Theming, Design system' }
+      { name: 'React', level: 82, icon: Atom, color: 'from-cyan-400 to-blue-500', description: 'Hooks, Context API, Component lifecycle' },
+      { name: 'Tailwind CSS', level: 88, icon: Wind, color: 'from-teal-400 to-blue-500', description: 'Utility-first, Custom components, Responsive' },
+      { name: 'Bootstrap', level: 75, icon: Grid3X3, color: 'from-purple-400 to-pink-500', description: 'Grid system, Components, Customization' },
+      { name: 'Material UI', level: 70, icon: Smartphone, color: 'from-indigo-400 to-purple-500', description: 'Component library, Theming, Design system' }
     ],
     tools: [
-      { name: 'Git', level: 78, icon: '📂', color: 'from-gray-600 to-gray-800', description: 'Version control, Branching, Collaboration' },
-      { name: 'GitHub', level: 85, icon: '�', color: 'from-gray-700 to-black', description: 'Repository management, Actions, Pages' },
-      { name: 'VS Code', level: 90, icon: '💻', color: 'from-blue-500 to-blue-700', description: 'Extensions, Debugging, Integrated terminal' },
-      { name: 'Vite', level: 75, icon: '⚡', color: 'from-yellow-500 to-orange-600', description: 'Fast build tool, Hot reload, Optimization' }
+      { name: 'Git', level: 78, icon: GitBranch, color: 'from-gray-600 to-gray-800', description: 'Version control, Branching, Collaboration' },
+      { name: 'GitHub', level: 85, icon: Github, color: 'from-gray-700 to-black', description: 'Repository management, Actions, Pages' },
+      { name: 'VS Code', level: 90, icon: Terminal, color: 'from-blue-500 to-blue-700', description: 'Extensions, Debugging, Integrated terminal' },
+      { name: 'Vite', level: 75, icon: Gauge, color: 'from-yellow-500 to-orange-600', description: 'Fast build tool, Hot reload, Optimization' }
     ],
     concepts: [
       'Responsive Web Design',
@@ -36,9 +42,14 @@ const TechnicalSkills = () => {
   const SkillBar = ({ skill, index }) => (
     <div className="mb-6">
       <div className="flex items-center justify-between mb-3">
-        <div>
-          <span className="font-semibold text-gray-900 text-sm sm:text-base">{skill.name}</span>
-          <p className="text-xs text-gray-600 hidden sm:block">{skill.description}</p>
+        <div className="flex items-center gap-3">
+          <div className={`w-8 h-8 bg-gradient-to-r ${skill.color} rounded-lg flex items-center justify-center text-white shadow-md`}>
+            {React.createElement(skill.icon, { className: "w-4 h-4" })}
+          </div>
+          <div>
+            <span className="font-semibold text-gray-900 text-sm sm:text-base">{skill.name}</span>
+            <p className="text-xs text-gray-600 hidden sm:block">{skill.description}</p>
+          </div>
         </div>
         <span className="text-sm font-semibold gradient-text">{skill.level}%</span>
       </div>

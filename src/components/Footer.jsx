@@ -1,3 +1,9 @@
+import React from 'react';
+import {
+  Github, Linkedin, Mail, Phone, MapPin, GraduationCap,
+  Zap, Code, Atom, FileCode, Palette, GitBranch, Grid3X3, Smartphone, Wind
+} from 'lucide-react';
+
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
@@ -11,10 +17,10 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { name: 'GitHub', icon: '🐙', href: '#' },
-    { name: 'LinkedIn', icon: '💼', href: '#' },
-    { name: 'Email', icon: '✉️', href: 'mailto:akankshyam4@gmail.com' },
-    { name: 'Phone', icon: '📱', href: 'tel:+919692353574' }
+    { name: 'GitHub', icon: Github, href: '#' },
+    { name: 'LinkedIn', icon: Linkedin, href: '#' },
+    { name: 'Email', icon: Mail, href: 'mailto:akankshyam4@gmail.com' },
+    { name: 'Phone', icon: Phone, href: 'tel:+919692353574' }
   ];
 
   const scrollToTop = () => {
@@ -36,8 +42,8 @@ const Footer = () => {
               and building meaningful software that makes a difference.
             </p>
             <div className="flex items-center gap-4 text-sm text-gray-400">
-              <span>📍 Odisha, India</span>
-              <span>🎓 ITER, SOA University</span>
+              <span className="flex items-center gap-1"><MapPin className="w-4 h-4" /> Odisha, India</span>
+              <span className="flex items-center gap-1"><GraduationCap className="w-4 h-4" /> ITER, SOA University</span>
             </div>
           </div>
           
@@ -68,7 +74,7 @@ const Footer = () => {
                   href={social.href}
                   className="flex items-center gap-2 text-gray-400 hover:text-blue-400 transition-colors duration-300 text-sm"
                 >
-                  <span>{social.icon}</span>
+                  {React.createElement(social.icon, { className: "w-4 h-4" })}
                   {social.name}
                 </a>
               ))}
@@ -81,14 +87,37 @@ const Footer = () => {
           <div className="text-center">
             <h4 className="text-lg font-semibold mb-4">Technologies I Work With</h4>
             <div className="flex flex-wrap justify-center gap-3">
-              {['JavaScript', 'Python', 'ReactJS', 'HTML', 'CSS', 'Git', 'GitHub', 'Bootstrap', 'Material UI'].map((tech, index) => (
-                <span
-                  key={index}
-                  className="bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-sm border border-gray-700 hover:border-blue-500 hover:text-blue-400 transition-all duration-300"
-                >
-                  {tech}
-                </span>
-              ))}
+              {/* Technologies with Lucide icons */}
+              <span className="flex items-center gap-1 bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-sm border border-gray-700 hover:border-blue-500 hover:text-blue-400 transition-all duration-300">
+                <Zap className="w-4 h-4" /> JavaScript
+              </span>
+              <span className="flex items-center gap-1 bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-sm border border-gray-700 hover:border-blue-500 hover:text-blue-400 transition-all duration-300">
+                <Code className="w-4 h-4" /> Python
+              </span>
+              <span className="flex items-center gap-1 bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-sm border border-gray-700 hover:border-blue-500 hover:text-blue-400 transition-all duration-300">
+                <Atom className="w-4 h-4" /> ReactJS
+              </span>
+              <span className="flex items-center gap-1 bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-sm border border-gray-700 hover:border-blue-500 hover:text-blue-400 transition-all duration-300">
+                <FileCode className="w-4 h-4" /> HTML
+              </span>
+              <span className="flex items-center gap-1 bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-sm border border-gray-700 hover:border-blue-500 hover:text-blue-400 transition-all duration-300">
+                <Palette className="w-4 h-4" /> CSS
+              </span>
+              <span className="flex items-center gap-1 bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-sm border border-gray-700 hover:border-blue-500 hover:text-blue-400 transition-all duration-300">
+                <GitBranch className="w-4 h-4" /> Git
+              </span>
+              <span className="flex items-center gap-1 bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-sm border border-gray-700 hover:border-blue-500 hover:text-blue-400 transition-all duration-300">
+                <Github className="w-4 h-4" /> GitHub
+              </span>
+              <span className="flex items-center gap-1 bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-sm border border-gray-700 hover:border-blue-500 hover:text-blue-400 transition-all duration-300">
+                <Grid3X3 className="w-4 h-4" /> Bootstrap
+              </span>
+              <span className="flex items-center gap-1 bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-sm border border-gray-700 hover:border-blue-500 hover:text-blue-400 transition-all duration-300">
+                <Smartphone className="w-4 h-4" /> Material UI
+              </span>
+              <span className="flex items-center gap-1 bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-sm border border-gray-700 hover:border-blue-500 hover:text-blue-400 transition-all duration-300">
+                <Wind className="w-4 h-4" /> Tailwind CSS
+              </span>
             </div>
           </div>
         </div>

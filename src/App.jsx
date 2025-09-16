@@ -26,9 +26,10 @@ const SectionLoader = () => (
 
 function App() {
   useEffect(() => {
+    // Scroll to top on initial load
+    window.scrollTo(0, 0);
     // Initialize simplified scroll animations
     const cleanup = initAllMobileAnimations();
-    
     return () => {
       if (cleanup && typeof cleanup === 'function') {
         cleanup();
