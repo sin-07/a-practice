@@ -54,7 +54,7 @@ const Projects = () => {
             {projectsData.map((project, index) => (
               <div 
                 key={index} 
-                className={`project-card group bg-gradient-to-br ${project.bgGradient} border-opacity-50 animate-fade-in-up mobile-stagger-${index + 1}`} 
+                className={`project-card card group bg-gradient-to-br ${project.bgGradient} border-opacity-50 animate-fade-in-up mobile-stagger-${index + 1} opacity-0 translate-y-8 card-bounce-enter`} 
                 style={{animationDelay: `${0.4 + index * 0.3}s`}}
                 data-aos="fade-up" 
                 data-aos-delay={`${200 + index * 200}`}

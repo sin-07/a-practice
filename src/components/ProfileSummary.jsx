@@ -1,4 +1,4 @@
-import ScrollAnimatedSection from './ScrollAnimatedSection';
+// Profile Summary Component
 
 const ProfileSummary = () => {
   const featureItems = [
@@ -12,17 +12,17 @@ const ProfileSummary = () => {
     <section id="profile-summary" className="section-padding bg-gradient-to-br from-gray-50 to-blue-50 gpu-accelerated">
       <div className="container mx-auto container-padding">
         <div className="max-w-7xl mx-auto">
-          <ScrollAnimatedSection animation="fade-up" delay={0}>
-            <h2 className="section-title text-center animate-fade-in-up">Profile Summary</h2>
-            <p className="text-center text-gray-600 mb-8 sm:mb-12 lg:mb-16 max-w-3xl mx-auto text-sm sm:text-base leading-relaxed animate-fade-in-up" style={{animationDelay: '0.2s'}}>
+          <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+            <h2 className="section-title animate-fade-in-up">Profile Summary</h2>
+            <p className="text-gray-600 max-w-3xl mx-auto text-sm sm:text-base leading-relaxed animate-fade-in-up" style={{animationDelay: '0.2s'}}>
               Passionate Computer Science Engineering student with expertise in modern web development technologies and a strong foundation in software engineering principles.
             </p>
-          </ScrollAnimatedSection>
+          </div>
           
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             {/* Text Content */}
             <div className="space-y-6 lg:space-y-8 order-2 lg:order-1">
-              <div className="card animate-fade-in-up mobile-stagger-1" data-aos="fade-up" data-aos-delay="100">
+              <div className="card animate-fade-in-up mobile-stagger-1 opacity-0 translate-y-8 card-bounce-enter" data-aos="fade-up" data-aos-delay="100">
                 <div className="flex items-start gap-4">
                   <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1 stagger-child">
                     <span className="text-white text-sm sm:text-base">🎯</span>
@@ -36,7 +36,7 @@ const ProfileSummary = () => {
                 </div>
               </div>
               
-              <div className="card animate-fade-in-up mobile-stagger-2" data-aos="fade-up" data-aos-delay="300">
+              <div className="card animate-fade-in-up mobile-stagger-2 opacity-0 translate-y-8 card-bounce-enter" data-aos="fade-up" data-aos-delay="300">
                 <div className="flex items-start gap-4">
                   <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1 stagger-child">
                     <span className="text-white text-sm sm:text-base">🚀</span>
@@ -50,7 +50,7 @@ const ProfileSummary = () => {
                 </div>
               </div>
               
-              <div className="card animate-fade-in-up" style={{animationDelay: '0.4s'}}>
+              <div className="card animate-fade-in-up mobile-stagger-3 opacity-0 translate-y-8 card-bounce-enter" style={{animationDelay: '0.4s'}}>
                 <div className="flex items-start gap-4">
                   <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-green-500 to-blue-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                     <span className="text-white text-sm sm:text-base">⚡</span>

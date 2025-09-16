@@ -1,4 +1,4 @@
-import ScrollAnimatedSection from './ScrollAnimatedSection';
+// Technical Skills Component
 
 const TechnicalSkills = () => {
   const skillsData = {
@@ -66,7 +66,7 @@ const TechnicalSkills = () => {
           
           <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
             {/* Programming Languages */}
-            <div className="card animate-fade-in-up" style={{animationDelay: '0.3s'}}>
+            <div className="card animate-fade-in-up mobile-stagger-1 opacity-0 translate-y-8 card-bounce-enter" style={{animationDelay: '0.3s'}} data-aos="fade-up" data-aos-delay="300">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl flex items-center justify-center text-white text-xl shadow-lg">
                   💻
@@ -81,7 +81,7 @@ const TechnicalSkills = () => {
             </div>
             
             {/* Frameworks & Libraries */}
-            <div className="card animate-fade-in-up" style={{animationDelay: '0.5s'}}>
+            <div className="card animate-fade-in-up mobile-stagger-2 opacity-0 translate-y-8 card-bounce-enter" style={{animationDelay: '0.5s'}} data-aos="fade-up" data-aos-delay="500">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-600 rounded-xl flex items-center justify-center text-white text-xl shadow-lg">
                   ⚛️
@@ -96,7 +96,7 @@ const TechnicalSkills = () => {
             </div>
             
             {/* Tools & Technologies */}
-            <div className="card animate-fade-in-up lg:col-span-2 xl:col-span-1" style={{animationDelay: '0.7s'}}>
+            <div className="card animate-fade-in-up mobile-stagger-3 opacity-0 translate-y-8 card-bounce-enter lg:col-span-2 xl:col-span-1" style={{animationDelay: '0.7s'}} data-aos="fade-up" data-aos-delay="700">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-teal-600 rounded-xl flex items-center justify-center text-white text-xl shadow-lg">
                   🛠️
@@ -113,7 +113,7 @@ const TechnicalSkills = () => {
           
           {/* Core Concepts */}
           <div className="mt-12 lg:mt-16">
-            <div className="card animate-fade-in-up" style={{animationDelay: '0.9s'}}>
+            <div className="card animate-fade-in-up mobile-stagger-1 opacity-0 translate-y-8 card-bounce-enter" style={{animationDelay: '0.9s'}} data-aos="fade-up" data-aos-delay="900">
               <div className="flex items-center justify-center gap-3 mb-8">
                 <div className="w-12 h-12 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center text-white text-xl shadow-lg">
                   🧠

@@ -4,40 +4,62 @@ export const initMobileScrollAnimations = () => {
   const isMobile = window.innerWidth <= 768;
   
   const observerOptions = {
-    threshold: isMobile ? 0.05 : 0.1, // Lower threshold for mobile
-    rootMargin: isMobile ? '0px 0px -20px 0px' : '0px 0px -50px 0px'
+    threshold: isMobile ? 0.1 : 0.15, // Better threshold for mobile
+    rootMargin: isMobile ? '0px 0px -10% 0px' : '0px 0px -20% 0px'
   };
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, index) => {
       if (entry.isIntersecting) {
-        // Add animation class with mobile-specific delay
+        const element = entry.target;
+        
+        // Enhanced card animations with bouncy effects
         setTimeout(() => {
-          entry.target.classList.add('animate');
+          // Remove initial transform classes
+          element.classList.remove('opacity-0', 'translate-y-8', 'card-enter');
           
-          // Special handling for cards and project items
-          if (entry.target.classList.contains('card') || 
-              entry.target.classList.contains('project-card')) {
-            entry.target.style.transform = 'translateY(0) scale(1)';
-            entry.target.style.opacity = '1';
+          // Add appropriate animation based on element type
+          if (element.classList.contains('card')) {
+            element.classList.add('card-bounce-enter-active');
+            element.classList.remove('card-bounce-enter');
+            
+            // Apply stagger-specific bouncy animations
+            if (element.classList.contains('mobile-stagger-1')) {
+              element.classList.add('mobile-bounce-up');
+            } else if (element.classList.contains('mobile-stagger-2')) {
+              element.classList.add('mobile-card-bounce');
+            } else if (element.classList.contains('mobile-stagger-3')) {
+              element.classList.add('mobile-spring-bounce');
+            } else {
+              element.classList.add('mobile-bounce-up');
+            }
+          } else if (element.classList.contains('project-card')) {
+            element.classList.add('mobile-card-bounce', 'card-bounce-enter-active');
+            element.classList.remove('card-bounce-enter');
+          } else {
+            // Default animations for other elements
+            element.classList.add('animate', 'card-enter-active');
+            element.classList.remove('card-enter');
           }
           
           // Handle nested elements for staggered animation
-          const children = entry.target.querySelectorAll('.stagger-child');
+          const children = element.querySelectorAll('.stagger-child');
           children.forEach((child, childIndex) => {
             setTimeout(() => {
               child.classList.add('animate');
               child.style.transform = 'translateY(0)';
               child.style.opacity = '1';
-            }, childIndex * (isMobile ? 150 : 100));
+            }, childIndex * (isMobile ? 200 : 150));
           });
           
-        }, isMobile ? 100 : 0);
+        }, isMobile ? 50 : 0); // Reduced delay for better mobile experience
+        
+        observer.unobserve(element);
       }
     });
   }, observerOptions);
 
-  // Target all animated elements
+  // Target all animated elements with enhanced selectors
   const animatedElements = document.querySelectorAll(`
     .animate-fade-in-up,
     .card,
@@ -46,6 +68,10 @@ export const initMobileScrollAnimations = () => {
     .scroll-animate-left,
     .scroll-animate-right,
     .scroll-animate-scale,
+    .mobile-stagger-1,
+    .mobile-stagger-2,
+    .mobile-stagger-3,
+    [data-aos],
     [class*="animate-"]
   `);
 
