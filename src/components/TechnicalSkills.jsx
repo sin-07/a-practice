@@ -1,4 +1,5 @@
 // Technical Skills Component
+import { Code, Layers, Settings, Brain } from 'lucide-react';
 
 const TechnicalSkills = () => {
   const skillsData = {
@@ -33,16 +34,11 @@ const TechnicalSkills = () => {
   };
 
   const SkillBar = ({ skill, index }) => (
-    <div className="mb-6 animate-fade-in-up" style={{animationDelay: `${index * 0.1}s`}}>
+    <div className="mb-6">
       <div className="flex items-center justify-between mb-3">
-        <div className="flex items-center gap-3">
-          <div className={`w-8 h-8 bg-gradient-to-r ${skill.color} rounded-lg flex items-center justify-center text-white text-sm shadow-md`}>
-            {skill.icon}
-          </div>
-          <div>
-            <span className="font-semibold text-gray-900 text-sm sm:text-base">{skill.name}</span>
-            <p className="text-xs text-gray-600 hidden sm:block">{skill.description}</p>
-          </div>
+        <div>
+          <span className="font-semibold text-gray-900 text-sm sm:text-base">{skill.name}</span>
+          <p className="text-xs text-gray-600 hidden sm:block">{skill.description}</p>
         </div>
         <span className="text-sm font-semibold gradient-text">{skill.level}%</span>
       </div>
@@ -66,10 +62,10 @@ const TechnicalSkills = () => {
           
           <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
             {/* Programming Languages */}
-            <div className="card animate-fade-in-up mobile-stagger-1 opacity-0 translate-y-8 card-bounce-enter" style={{animationDelay: '0.3s'}} data-aos="fade-up" data-aos-delay="300">
+            <div className="card" data-aos="fade-up" data-aos-delay="300">
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl flex items-center justify-center text-white text-xl shadow-lg">
-                  💻
+                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl flex items-center justify-center text-white shadow-lg">
+                  <Code className="w-6 h-6" />
                 </div>
                 <h3 className="text-lg sm:text-xl font-bold text-gray-900">
                   Programming Languages
@@ -81,10 +77,10 @@ const TechnicalSkills = () => {
             </div>
             
             {/* Frameworks & Libraries */}
-            <div className="card animate-fade-in-up mobile-stagger-2 opacity-0 translate-y-8 card-bounce-enter" style={{animationDelay: '0.5s'}} data-aos="fade-up" data-aos-delay="500">
+            <div className="card" data-aos="fade-up" data-aos-delay="500">
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-600 rounded-xl flex items-center justify-center text-white text-xl shadow-lg">
-                  ⚛️
+                <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-600 rounded-xl flex items-center justify-center text-white shadow-lg">
+                  <Layers className="w-6 h-6" />
                 </div>
                 <h3 className="text-lg sm:text-xl font-bold text-gray-900">
                   Frameworks & Libraries
@@ -96,10 +92,10 @@ const TechnicalSkills = () => {
             </div>
             
             {/* Tools & Technologies */}
-            <div className="card animate-fade-in-up mobile-stagger-3 opacity-0 translate-y-8 card-bounce-enter lg:col-span-2 xl:col-span-1" style={{animationDelay: '0.7s'}} data-aos="fade-up" data-aos-delay="700">
+            <div className="card lg:col-span-2 xl:col-span-1" data-aos="fade-up" data-aos-delay="700">
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-teal-600 rounded-xl flex items-center justify-center text-white text-xl shadow-lg">
-                  🛠️
+                <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-teal-600 rounded-xl flex items-center justify-center text-white shadow-lg">
+                  <Settings className="w-6 h-6" />
                 </div>
                 <h3 className="text-lg sm:text-xl font-bold text-gray-900">
                   Tools & Technologies
@@ -113,10 +109,10 @@ const TechnicalSkills = () => {
           
           {/* Core Concepts */}
           <div className="mt-12 lg:mt-16">
-            <div className="card animate-fade-in-up mobile-stagger-1 opacity-0 translate-y-8 card-bounce-enter" style={{animationDelay: '0.9s'}} data-aos="fade-up" data-aos-delay="900">
+            <div className="card" data-aos="fade-up" data-aos-delay="900">
               <div className="flex items-center justify-center gap-3 mb-8">
-                <div className="w-12 h-12 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center text-white text-xl shadow-lg">
-                  🧠
+                <div className="w-12 h-12 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center text-white shadow-lg">
+                  <Brain className="w-6 h-6" />
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold text-gray-900 text-center">
                   Core Concepts & Expertise
@@ -126,8 +122,7 @@ const TechnicalSkills = () => {
                 {skillsData.concepts.map((concept, index) => (
                   <div
                     key={index}
-                    className="skill-tag text-center animate-scale-in"
-                    style={{animationDelay: `${1.1 + index * 0.1}s`}}
+                    className="skill-tag text-center"
                   >
                     {concept}
                   </div>

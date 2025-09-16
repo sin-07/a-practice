@@ -1,3 +1,6 @@
+import React from 'react';
+import { Globe, Brain, Sparkles } from 'lucide-react';
+
 const Projects = () => {
   const projectsData = [
     {
@@ -13,7 +16,7 @@ const Projects = () => {
         'SEO friendly'
       ],
       technologies: ['ReactJS', 'Tailwind CSS', 'JavaScript', 'HTML5', 'Vite', 'GitHub'],
-      icon: '🌐',
+      icon: Globe,
       color: 'from-blue-500 to-purple-600',
       bgGradient: 'from-blue-50 to-purple-50',
       status: 'Live',
@@ -32,7 +35,7 @@ const Projects = () => {
         'Data persistence'
       ],
       technologies: ['Python', 'Tkinter', 'JSON', 'Data Structures', 'File I/O', 'OOP'],
-      icon: '🧠',
+      icon: Brain,
       color: 'from-green-500 to-teal-600',
       bgGradient: 'from-green-50 to-teal-50',
       status: 'Completed',
@@ -54,15 +57,14 @@ const Projects = () => {
             {projectsData.map((project, index) => (
               <div 
                 key={index} 
-                className={`project-card card group bg-gradient-to-br ${project.bgGradient} border-opacity-50 animate-fade-in-up mobile-stagger-${index + 1} opacity-0 translate-y-8 card-bounce-enter`} 
-                style={{animationDelay: `${0.4 + index * 0.3}s`}}
+                className={`project-card group bg-gradient-to-br ${project.bgGradient} border-opacity-50`} 
                 data-aos="fade-up" 
                 data-aos-delay={`${200 + index * 200}`}
               >
                 {/* Project Header */}
                 <div className="flex items-start justify-between mb-6">
-                  <div className={`w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br ${project.color} flex items-center justify-center text-white text-xl sm:text-2xl shadow-xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-300`}>
-                    {project.icon}
+                  <div className={`w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br ${project.color} flex items-center justify-center text-white shadow-xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-300`}>
+                    {React.createElement(project.icon, { className: "w-6 h-6 sm:w-8 sm:h-8" })}
                   </div>
                   <div className="flex flex-col items-end gap-2">
                     <span className={`bg-gradient-to-r ${project.color} text-white px-3 py-1 rounded-full text-xs sm:text-sm font-semibold shadow-md`}>
@@ -93,7 +95,7 @@ const Projects = () => {
                 <div className="mb-6">
                   <h4 className="font-bold text-gray-900 mb-4 flex items-center gap-2 text-sm sm:text-base">
                     <div className="w-6 h-6 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                      <span className="text-white text-xs">✨</span>
+                      <Sparkles className="text-white w-3 h-3" />
                     </div>
                     Key Features
                   </h4>

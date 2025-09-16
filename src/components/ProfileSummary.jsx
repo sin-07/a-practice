@@ -1,4 +1,5 @@
 // Profile Summary Component
+import { Target, Rocket, Zap } from 'lucide-react';
 
 const ProfileSummary = () => {
   const featureItems = [
@@ -22,10 +23,10 @@ const ProfileSummary = () => {
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             {/* Text Content */}
             <div className="space-y-6 lg:space-y-8 order-2 lg:order-1">
-              <div className="card animate-fade-in-up mobile-stagger-1 opacity-0 translate-y-8 card-bounce-enter" data-aos="fade-up" data-aos-delay="100">
+              <div className="card card-animate stagger-1" data-aos="fade-up" data-aos-delay="100">
                 <div className="flex items-start gap-4">
                   <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1 stagger-child">
-                    <span className="text-white text-sm sm:text-base">🎯</span>
+                    <Target className="text-white w-4 h-4 sm:w-5 sm:h-5" />
                   </div>
                   <div className="stagger-child">
                     <h3 className="font-semibold text-gray-900 mb-2 text-lg sm:text-xl">Solution-Driven Developer</h3>
@@ -36,10 +37,10 @@ const ProfileSummary = () => {
                 </div>
               </div>
               
-              <div className="card animate-fade-in-up mobile-stagger-2 opacity-0 translate-y-8 card-bounce-enter" data-aos="fade-up" data-aos-delay="300">
+              <div className="card card-animate stagger-2" data-aos="fade-up" data-aos-delay="300">
                 <div className="flex items-start gap-4">
                   <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1 stagger-child">
-                    <span className="text-white text-sm sm:text-base">🚀</span>
+                    <Rocket className="text-white w-4 h-4 sm:w-5 sm:h-5" />
                   </div>
                   <div className="stagger-child">
                     <h3 className="font-semibold text-gray-900 mb-2 text-lg sm:text-xl">Innovation-Focused</h3>
@@ -50,10 +51,10 @@ const ProfileSummary = () => {
                 </div>
               </div>
               
-              <div className="card animate-fade-in-up mobile-stagger-3 opacity-0 translate-y-8 card-bounce-enter" style={{animationDelay: '0.4s'}}>
+              <div className="card card-animate stagger-3" style={{animationDelay: '0.4s'}}>
                 <div className="flex items-start gap-4">
                   <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-green-500 to-blue-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <span className="text-white text-sm sm:text-base">⚡</span>
+                    <Zap className="text-white w-4 h-4 sm:w-5 sm:h-5" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-2 text-lg sm:text-xl">Fast-Paced Excellence</h3>
