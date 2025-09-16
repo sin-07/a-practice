@@ -1,3 +1,5 @@
+import ScrollAnimatedSection from './ScrollAnimatedSection';
+
 const TechnicalSkills = () => {
   const skillsData = {
     languages: [

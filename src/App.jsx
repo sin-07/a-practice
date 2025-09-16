@@ -1,7 +1,9 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import Header from './components/Header.jsx';
 import ProfileSummary from './components/ProfileSummary.jsx';
 import AccessibilityAnnouncer from './components/AccessibilityAnnouncer.jsx';
+import { initScrollAnimations } from './utils/scrollAnimations.js';
+import { initAllMobileAnimations } from './utils/mobileScrollAnimations.js';
 
 // Lazy load less critical components for better performance
 const Education = lazy(() => import('./components/Education.jsx'));
@@ -24,6 +26,23 @@ const SectionLoader = () => (
 );
 
 function App() {
+  useEffect(() => {
+    // Initialize enhanced mobile and desktop scroll animations
+    const cleanup = initAllMobileAnimations();
+    
+    // Also initialize regular scroll animations
+    const observer = initScrollAnimations();
+    
+    return () => {
+      if (cleanup && typeof cleanup === 'function') {
+        cleanup();
+      }
+      if (observer) {
+        observer.disconnect();
+      }
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-white gpu-accelerated">
       <AccessibilityAnnouncer />

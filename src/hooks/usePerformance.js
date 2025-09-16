@@ -16,7 +16,7 @@ export const useIntersectionObserver = (options = {}) => {
       },
       {
         threshold: 0.1,
-        rootMargin: '50px',
+        rootMargin: '100px',
         ...options,
       }
     );
@@ -34,6 +34,85 @@ export const useIntersectionObserver = (options = {}) => {
   }, [hasIntersected, options]);
 
   return [ref, isIntersecting, hasIntersected];
+};
+
+// Enhanced scroll animation hook
+export const useScrollAnimation = (animationType = 'fade-up', delay = 0) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            setIsVisible(true);
+          }, delay);
+          observer.unobserve(entry.target);
+        }
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '50px 0px -10% 0px',
+      }
+    );
+
+    const currentRef = ref.current;
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
+
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+    };
+  }, [delay]);
+
+  const getAnimationClass = () => {
+    const baseClass = `animate-${animationType}`;
+    return `${baseClass} ${isVisible ? 'visible' : ''}`;
+  };
+
+  return [ref, isVisible, getAnimationClass()];
+};
+
+// Hook for staggered animations
+export const useStaggeredAnimation = (items = [], baseDelay = 100) => {
+  const [visibleItems, setVisibleItems] = useState([]);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          items.forEach((_, index) => {
+            setTimeout(() => {
+              setVisibleItems(prev => [...prev, index]);
+            }, index * baseDelay);
+          });
+          observer.unobserve(entry.target);
+        }
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '50px',
+      }
+    );
+
+    const currentRef = ref.current;
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
+
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+    };
+  }, [items.length, baseDelay]);
+
+  return [ref, visibleItems];
 };
 
 // Hook for lazy loading

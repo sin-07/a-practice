@@ -52,7 +52,13 @@ const Projects = () => {
           
           <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 xl:gap-10">
             {projectsData.map((project, index) => (
-              <div key={index} className={`project-card group bg-gradient-to-br ${project.bgGradient} border-opacity-50 animate-fade-in-up`} style={{animationDelay: `${0.4 + index * 0.3}s`}}>
+              <div 
+                key={index} 
+                className={`project-card group bg-gradient-to-br ${project.bgGradient} border-opacity-50 animate-fade-in-up mobile-stagger-${index + 1}`} 
+                style={{animationDelay: `${0.4 + index * 0.3}s`}}
+                data-aos="fade-up" 
+                data-aos-delay={`${200 + index * 200}`}
+              >
                 {/* Project Header */}
                 <div className="flex items-start justify-between mb-6">
                   <div className={`w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br ${project.color} flex items-center justify-center text-white text-xl sm:text-2xl shadow-xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-300`}>

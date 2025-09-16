@@ -120,6 +120,68 @@
   }
 }
 
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes rotateIn {
+  from {
+    opacity: 0;
+    transform: rotate(-200deg);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0);
+  }
+}
+
 @keyframes slideInRight {
   from {
     opacity: 0;
@@ -142,6 +204,130 @@
 
 .animate-float {
   animation: float 3s ease-in-out infinite;
+}
+
+/* Enhanced scroll animations */
+.animate-slide-in-left {
+  animation: slideInLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slide-in-down {
+  animation: slideInDown 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-bounce-in {
+  animation: bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+.animate-rotate-in {
+  animation: rotateIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Scroll-triggered animation states */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scroll-animate.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-animate-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scroll-animate-left.animate {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scroll-animate-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scroll-animate-right.animate {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scroll-animate-scale {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scroll-animate-scale.animate {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Enhanced mobile scroll animations */
+@media (max-width: 768px) {
+  .animate-fade-in-up {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+  }
+  
+  .card {
+    transform: translateY(40px);
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .card.animate {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
+  .project-card {
+    transform: translateY(50px) scale(0.95);
+    opacity: 0;
+    transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .project-card.animate {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Mobile-specific staggered animations */
+.mobile-stagger-1 { animation-delay: 0.2s; }
+.mobile-stagger-2 { animation-delay: 0.4s; }
+.mobile-stagger-3 { animation-delay: 0.6s; }
+.mobile-stagger-4 { animation-delay: 0.8s; }
+
+/* Ensure mobile animations are prominent */
+@media (max-width: 768px) {
+  .animate-fade-in-up {
+    transform: translateY(60px);
+    opacity: 0;
+    animation-duration: 1.2s;
+    animation-fill-mode: both;
+  }
+  
+  .animate-fade-in-up.animate,
+  .animate-fade-in-up:nth-child(n) {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
+  /* Ensure visibility during scroll */
+  .card, .project-card {
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+  }
 }
 
 /* Professional focus styles */
@@ -210,16 +396,69 @@
   }
 }
 
-/* Intersection observer fade in */
+/* Intersection observer animations */
 .animate-on-scroll {
   opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(50px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .animate-on-scroll.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+.animate-slide-in-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animate-slide-in-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.animate-slide-in-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animate-slide-in-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.animate-scale-up {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animate-scale-up.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.animate-fade-in {
+  opacity: 0;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animate-fade-in.visible {
+  opacity: 1;
+}
+
+.animate-bounce-in {
+  opacity: 0;
+  transform: scale(0.3);
+  transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.animate-bounce-in.visible {
+  opacity: 1;
+  transform: scale(1);
 }
 
 /* Reduced motion preferences */

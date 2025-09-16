@@ -1,3 +1,5 @@
+import React from 'react';
+
 const Education = () => {
   const educationData = [
     {
@@ -11,117 +13,127 @@ const Education = () => {
     },
     {
       degree: 'Diploma in Computer Science Engineering',
-      institution: 'Sushree Institute of Technical Education',
-      location: 'Balangir, Odisha',
-      period: '2022-2025',
+      institution: 'Government Polytechnic, Rayagada',
+      location: 'Odisha',
+      period: '2019 - 2022',
       status: 'completed',
-      description: 'Completed diploma with strong foundation in programming fundamentals and software engineering principles.',
-      highlights: ['Programming Fundamentals', 'Object-Oriented Programming', 'Computer Networks', 'System Analysis']
+      description: 'Completed diploma with strong foundation in programming fundamentals and computer systems.',
+      highlights: ['Programming Fundamentals', 'Computer Systems', 'Technical Leadership', 'Project Management']
     }
   ];
 
   return (
-    <section id="education" className="section-padding bg-white">
+    <section id="education" className="section-padding bg-gradient-to-br from-white to-gray-50">
       <div className="container mx-auto container-padding">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <h2 className="section-title text-center animate-fade-in-up">Education</h2>
+          <p className="text-center text-gray-600 mb-8 sm:mb-12 lg:mb-16 max-w-3xl mx-auto text-sm sm:text-base leading-relaxed animate-fade-in-up" style={{animationDelay: '0.2s'}}>
+            My educational journey in Computer Science Engineering, building a strong foundation in technology and software development.
+          </p>
           
-          <div className="relative">
-            {/* Timeline Line */}
-            <div className="absolute left-4 sm:left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500 hidden lg:block"></div>
-            
-            <div className="space-y-8 lg:space-y-12">
-              {educationData.map((edu, index) => (
-                <div key={index} className={`relative animate-fade-in-up`} style={{animationDelay: `${index * 0.3}s`}}>
-                  {/* Timeline Dot */}
-                  <div className="absolute left-0 sm:left-4 lg:left-6 w-4 h-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full border-4 border-white shadow-lg hidden lg:block"></div>
-                  
-                  <div className="project-card lg:ml-16">
-                    {/* Status Badge */}
-                    <div className={`inline-flex items-center px-3 py-1 rounded-full text-xs sm:text-sm font-semibold mb-4 ${
-                      edu.status === 'current' 
-                        ? 'bg-green-100 text-green-700 border border-green-200' 
-                        : 'bg-blue-100 text-blue-700 border border-blue-200'
-                    }`}>
-                      <div className={`w-2 h-2 rounded-full mr-2 ${
-                        edu.status === 'current' ? 'bg-green-500' : 'bg-blue-500'
-                      }`}></div>
-                      {edu.status === 'current' ? 'Currently Enrolled' : 'Completed'}
-                    </div>
-                    
-                    <div className="grid lg:grid-cols-3 gap-6 lg:gap-8">
-                      {/* Education Details */}
-                      <div className="lg:col-span-2">
-                        <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">
-                          {edu.degree}
-                        </h3>
-                        
-                        <div className="space-y-2 sm:space-y-3 mb-4 sm:mb-6">
-                          <p className="gradient-text font-semibold text-sm sm:text-base">
-                            {edu.institution}
-                          </p>
-                          <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6 text-gray-600 text-sm sm:text-base">
-                            <div className="flex items-center gap-2">
-                              <span className="text-blue-500">📍</span>
-                              {edu.location}
+          <div className="space-y-8 lg:space-y-12">
+            {educationData.map((education, index) => (
+              <div 
+                key={index} 
+                className={`relative animate-fade-in-up mobile-stagger-${index + 1}`} 
+                style={{animationDelay: `${0.4 + index * 0.3}s`}}
+                data-aos="fade-up" 
+                data-aos-delay={`${300 + index * 300}`}
+              >
+                {/* Timeline line */}
+                <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 to-purple-600 transform -translate-x-1/2"></div>
+                
+                {/* Timeline dot */}
+                <div className="hidden lg:block absolute left-1/2 top-8 w-4 h-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full transform -translate-x-1/2 z-10 shadow-lg"></div>
+                
+                <div className={`lg:grid lg:grid-cols-2 lg:gap-16 items-start ${index % 2 === 0 ? '' : 'lg:grid-flow-col-dense'}`}>
+                  {/* Content */}
+                  <div className={`${index % 2 === 0 ? 'lg:pr-8' : 'lg:pl-8 lg:col-start-2'}`}>
+                    <div className="card bg-gradient-to-br from-blue-50 to-purple-50 border-blue-200/30 hover:shadow-xl transition-all duration-500 group stagger-child">
+                      {/* Header */}
+                      <div className="flex items-start justify-between mb-6">
+                        <div className="flex-1">
+                          <div className="flex items-center gap-3 mb-2">
+                            <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl flex items-center justify-center text-white text-xl shadow-lg group-hover:scale-110 transition-transform duration-300">
+                              🎓
                             </div>
-                            <div className="flex items-center gap-2">
-                              <span className="text-purple-500">📅</span>
-                              {edu.period}
-                            </div>
+                            <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
+                              education.status === 'current' 
+                                ? 'bg-green-100 text-green-700' 
+                                : 'bg-blue-100 text-blue-700'
+                            }`}>
+                              {education.status === 'current' ? 'Current' : 'Completed'}
+                            </span>
                           </div>
-                        </div>
-                        
-                        <p className="text-gray-700 leading-relaxed mb-4 sm:mb-6 text-sm sm:text-base">
-                          {edu.description}
-                        </p>
-                        
-                        {/* Key Highlights */}
-                        <div>
-                          <h4 className="font-semibold text-gray-900 mb-3 text-sm sm:text-base">Key Subjects:</h4>
-                          <div className="flex flex-wrap gap-2">
-                            {edu.highlights.map((highlight, idx) => (
-                              <span key={idx} className="skill-tag">
-                                {highlight}
-                              </span>
-                            ))}
-                          </div>
+                          <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:from-blue-600 group-hover:to-purple-600 transition-all duration-300">
+                            {education.degree}
+                          </h3>
+                          <p className="text-blue-600 font-semibold mb-1 text-sm sm:text-base">{education.institution}</p>
+                          <p className="text-gray-600 text-sm">{education.location} • {education.period}</p>
                         </div>
                       </div>
                       
-                      {/* Visual Element */}
-                      <div className="flex items-center justify-center lg:justify-start">
-                        <div className={`w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 rounded-2xl flex items-center justify-center text-white text-2xl sm:text-3xl font-bold shadow-xl transform hover:scale-110 transition-transform duration-300 ${
-                          edu.status === 'current' 
-                            ? 'bg-gradient-to-br from-green-400 via-emerald-500 to-teal-600' 
-                            : 'bg-gradient-to-br from-blue-400 via-purple-500 to-indigo-600'
-                        }`}>
-                          {edu.status === 'current' ? '🎓' : '✅'}
+                      {/* Description */}
+                      <p className="text-gray-700 leading-relaxed mb-6 text-sm sm:text-base">
+                        {education.description}
+                      </p>
+                      
+                      {/* Highlights */}
+                      <div>
+                        <h4 className="font-bold text-gray-900 mb-4 flex items-center gap-2 text-sm sm:text-base">
+                          <div className="w-6 h-6 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                            <span className="text-white text-xs">✨</span>
+                          </div>
+                          Key Highlights
+                        </h4>
+                        <div className="grid sm:grid-cols-2 gap-3">
+                          {education.highlights.map((highlight, highlightIndex) => (
+                            <div key={highlightIndex} className="flex items-center gap-3">
+                              <div className="w-2 h-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex-shrink-0"></div>
+                              <span className="text-sm text-gray-700">{highlight}</span>
+                            </div>
+                          ))}
                         </div>
                       </div>
                     </div>
                   </div>
+                  
+                  {/* Visual element */}
+                  <div className={`hidden lg:block ${index % 2 === 0 ? 'lg:pl-8' : 'lg:pr-8 lg:col-start-1'}`}>
+                    <div className="project-card bg-gradient-to-br from-gray-50 to-blue-50 border-gray-200 text-center animate-float group" style={{animationDelay: `${1 + index * 0.5}s`}}>
+                      <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center text-white text-2xl mx-auto mb-4 shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                        📚
+                      </div>
+                      <h4 className="font-bold text-gray-900 mb-2">Academic Excellence</h4>
+                      <p className="text-gray-600 text-sm leading-relaxed">
+                        Dedicated to continuous learning and academic growth in the field of Computer Science Engineering.
+                      </p>
+                    </div>
+                  </div>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
           
-          {/* Academic Focus */}
-          <div className="mt-12 lg:mt-16">
-            <div className="card bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 border-blue-200 text-center animate-fade-in-up" style={{animationDelay: '0.8s'}}>
-              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center text-white text-2xl mx-auto mb-6 shadow-lg">
-                🎯
+          {/* Academic Focus Section */}
+          <div className="mt-12 lg:mt-20">
+            <div className="card bg-gradient-to-r from-indigo-50 via-purple-50 to-pink-50 border-indigo-200 animate-fade-in-up" style={{animationDelay: '1.2s'}}>
+              <div className="text-center">
+                <div className="w-16 h-16 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-2xl flex items-center justify-center text-white text-2xl mx-auto mb-6 shadow-lg animate-float">
+                  🚀
+                </div>
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">
+                  Academic Focus & Future Goals
+                </h3>
+                <p className="text-gray-700 mb-8 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
+                  My educational journey is focused on mastering 
+                  <span className="font-semibold gradient-text"> software engineering principles</span>, 
+                  <span className="font-semibold gradient-text"> data structures & algorithms</span>, and 
+                  <span className="font-semibold gradient-text"> modern web technologies</span>. 
+                  Continuously expanding knowledge through practical projects, industry-relevant coursework, 
+                  and hands-on experience with cutting-edge development tools and methodologies.
+                </p>
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">
-                Academic Excellence & Focus
-              </h3>
-              <p className="text-gray-700 leading-relaxed max-w-3xl mx-auto text-sm sm:text-base">
-                Specializing in <span className="font-semibold gradient-text">software development</span>, 
-                <span className="font-semibold gradient-text"> data structures & algorithms</span>, and 
-                <span className="font-semibold gradient-text"> modern web technologies</span>. 
-                Continuously expanding knowledge through practical projects, industry-relevant coursework, 
-                and hands-on experience with cutting-edge development tools and methodologies.
-              </p>
             </div>
           </div>
         </div>
